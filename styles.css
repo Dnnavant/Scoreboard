@@ -1,0 +1,550 @@
+/* ==========================================================================
+   Reset and Base Styles
+   ========================================================================== */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	background-color: #1a1a1a;
+	color: #ffffff;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem;
+}
+
+/* ==========================================================================
+   Scoreboard Container
+   ========================================================================== */
+.scoreboard-container {
+	background-color: #2a2a2a;
+	border: 4px solid #444;
+	border-radius: 15px;
+	padding: 2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	max-width: 1200px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   Team Sections (Home and Away)
+   ========================================================================== */
+.team-section {
+	flex: 1;
+	text-align: center;
+	padding: 1rem;
+}
+
+.team-name {
+	font-size: 2rem;
+	font-weight: bold;
+	margin-bottom: 1rem;
+	color: #fff;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.team-logo {
+	width: 100px;
+	height: 100px;
+	margin: 0 auto 1rem;
+	background-color: #333;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 3px solid #444;
+}
+
+.team-logo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.score {
+	font-family: "Digital-7", monospace;
+	font-size: 4rem;
+	color: #00ff00;
+	text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+	margin: 1rem 0;
+	transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   Timeout Boxes
+   ========================================================================== */
+.timeouts {
+	display: flex;
+	justify-content: center;
+	gap: 0.5rem;
+	margin-top: 1rem;
+}
+
+.timeout-set {
+	display: flex;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+.timeout-box {
+	width: 30px;
+	height: 30px;
+	background-color: #00ff00;
+	border-radius: 4px;
+	transition: all 0.3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	cursor: pointer;
+	border: 2px solid #008800;
+}
+
+.timeout-box:hover {
+	transform: scale(1.1);
+	box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.timeout-box.used {
+	background-color: #ff0000;
+	border-color: #880000;
+	cursor: not-allowed;
+}
+
+.timeout-box.used:hover {
+	transform: none;
+	box-shadow: none;
+}
+
+.timeout-x {
+	color: white;
+	font-size: 24px;
+	font-weight: bold;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.timeout-box.used .timeout-x {
+	opacity: 1;
+}
+
+/* ==========================================================================
+   Center Section (Timer and Controls)
+   ========================================================================== */
+.center-section {
+	text-align: center;
+	padding: 0 2rem;
+}
+
+.quarter-indicator {
+	font-family: "Digital-7", monospace;
+	font-size: 2rem;
+	color: #00ff00;
+	text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+	margin-bottom: 0.5rem;
+}
+
+.timer {
+	font-family: "Digital-7", monospace;
+	font-size: 3.5rem;
+	color: #00ff00;
+	text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+	margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   Timer Controls
+   ========================================================================== */
+.timer-controls {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	justify-content: center;
+	margin-bottom: 1rem;
+	align-items: center;
+}
+
+.timer-buttons {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+.timer-controls button {
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	border: none;
+	border-radius: 5px;
+	background-color: #444;
+	color: white;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.timer-controls button:hover {
+	background-color: #555;
+}
+
+.quarter-select {
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	border: none;
+	border-radius: 5px;
+	background-color: #444;
+	color: white;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.quarter-select:hover {
+	background-color: #555;
+}
+
+.quarter-select option {
+	background-color: #444;
+	color: white;
+}
+
+/* ==========================================================================
+   Time Input Controls
+   ========================================================================== */
+.time-input {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	background-color: #333;
+	padding: 0.5rem;
+	border-radius: 5px;
+	margin-top: 0.5rem;
+}
+
+.time-input label {
+	color: #fff;
+	font-size: 0.9rem;
+}
+
+.time-input input {
+	width: 60px;
+	padding: 0.3rem;
+	border: none;
+	border-radius: 3px;
+	background-color: #444;
+	color: #fff;
+	text-align: center;
+	font-size: 1rem;
+}
+
+.time-input input:focus {
+	outline: none;
+	background-color: #555;
+}
+
+.time-input input::-webkit-inner-spin-button,
+.time-input input::-webkit-outer-spin-button {
+	opacity: 1;
+	height: 24px;
+	cursor: pointer;
+}
+
+/* ==========================================================================
+   Possession Arrow
+   ========================================================================== */
+.possession-arrow {
+	margin-top: 1rem;
+}
+
+.arrow {
+	width: 0;
+	height: 0;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-right: 30px solid #00ff00;
+	margin: 0 auto;
+	transition: transform 0.3s ease;
+}
+
+.arrow.away {
+	transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   Control Panel
+   ========================================================================== */
+.control-panel {
+	background-color: #2a2a2a;
+	border: 4px solid #444;
+	border-radius: 15px;
+	padding: 2rem;
+	width: 100%;
+	max-width: 1200px;
+	margin-top: 2rem;
+}
+
+/* ==========================================================================
+   Team Score Controls
+   ========================================================================== */
+.team-controls {
+	display: flex;
+	justify-content: space-between;
+	gap: 2rem;
+	margin-bottom: 2rem;
+}
+
+.team-control {
+	flex: 1;
+	text-align: center;
+}
+
+.team-control h3 {
+	margin-bottom: 1rem;
+	color: #fff;
+}
+
+.score-buttons {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.score-group {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.score-btn {
+	flex: 1;
+	padding: 0.8rem;
+	font-size: 1rem;
+	border: none;
+	border-radius: 5px;
+	background-color: #444;
+	color: white;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.score-btn:hover {
+	background-color: #555;
+	transform: translateY(-2px);
+}
+
+.score-btn.subtract {
+	background-color: #884444;
+}
+
+.score-btn.subtract:hover {
+	background-color: #995555;
+}
+
+/* ==========================================================================
+   Game Control Buttons
+   ========================================================================== */
+.game-controls {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.game-controls button {
+	padding: 0.8rem 1.5rem;
+	font-size: 1rem;
+	border: none;
+	border-radius: 5px;
+	background-color: #444;
+	color: white;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.game-controls button:hover {
+	background-color: #555;
+	transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+	.scoreboard-container {
+		flex-direction: column;
+		padding: 1rem;
+	}
+
+	.team-section {
+		width: 100%;
+		margin-bottom: 1rem;
+	}
+
+	.center-section {
+		padding: 1rem 0;
+	}
+
+	.team-controls {
+		flex-direction: column;
+	}
+
+	.team-control {
+		margin-bottom: 1rem;
+	}
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes scoreUpdate {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+.score-update {
+	animation: scoreUpdate 0.3s ease;
+}
+
+/* ==========================================================================
+   Popup Styles
+   ========================================================================== */
+.popup {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	z-index: 1000;
+	justify-content: center;
+	align-items: center;
+}
+
+.popup.active {
+	display: flex;
+}
+
+.popup-content {
+	background-color: #2a2a2a;
+	padding: 2rem;
+	border-radius: 15px;
+	border: 4px solid #444;
+	width: 90%;
+	max-width: 500px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.popup-content h2 {
+	color: #fff;
+	margin-bottom: 1.5rem;
+	text-align: center;
+	font-size: 2rem;
+}
+
+.form-group {
+	margin-bottom: 1.5rem;
+}
+
+.form-group label {
+	display: block;
+	color: #fff;
+	margin-bottom: 0.5rem;
+	font-size: 1.1rem;
+}
+
+.form-group input {
+	width: 100%;
+	padding: 0.8rem;
+	border: none;
+	border-radius: 5px;
+	background-color: #444;
+	color: #fff;
+	font-size: 1rem;
+}
+
+.form-group input:focus {
+	outline: none;
+	background-color: #555;
+}
+
+.popup-content button {
+	width: 100%;
+	padding: 1rem;
+	font-size: 1.1rem;
+	border: none;
+	border-radius: 5px;
+	background-color: #444;
+	color: white;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.popup-content button:hover {
+	background-color: #555;
+	transform: translateY(-2px);
+}
+
+#winnerMessage {
+	color: #fff;
+	font-size: 1.5rem;
+	text-align: center;
+	margin: 1.5rem 0;
+}
+
+.image-preview {
+	width: 100px;
+	height: 100px;
+	margin: 10px auto;
+	border: 2px solid #444;
+	border-radius: 50%;
+	overflow: hidden;
+	background-color: #333;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.image-preview img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.image-preview:empty {
+	display: none;
+}
+
+input[type="file"] {
+	width: 100%;
+	padding: 0.5rem;
+	margin-top: 0.5rem;
+	background-color: #444;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+	background-color: #555;
+	border: none;
+	border-radius: 3px;
+	color: #fff;
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+	margin-right: 1rem;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+	background-color: #666;
+}
